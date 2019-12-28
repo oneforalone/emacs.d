@@ -1,0 +1,9 @@
+#+TITLE: A Complete Personal Emacs Configuration
+
+In the last couples of years, I've just using Purcell's emacs configuration.
+However, I do not get a lot of fun, cause there are so many extends packages
+I never used, and I like keep things clean. Therefore, I decided to write a
+new configuration for my own.
+
+This configuration will contain *Common Lisp*, *C/C++* and *Org*. One thing should
+declare that I perfer *smex* and *ido* more than *helm*.
