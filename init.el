@@ -10,6 +10,7 @@
 (require 'init-magit)
 (require 'init-slime)
 (require 'init-c-setups)
+(require 'init-latex)
 
 (when (file-exists-p custom-file)
   (load custom-file))
