@@ -11,6 +11,7 @@
 (require 'init-slime)
 (require 'init-c-setups)
 (require 'init-latex)
+(require 'init-org)
 
 (when (file-exists-p custom-file)
   (load custom-file))
