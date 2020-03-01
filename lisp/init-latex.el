@@ -9,6 +9,8 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 
+(setq pdf-latex-command "xelatex")
+
 (add-hook 'plain-TeX-mode-hook
 	  (lambda () (set (make-local-variable 'TeX-electric-math)
 			  (cons "$" "$"))))
@@ -18,3 +20,4 @@
 			  (cons "\\(" "\\)"))))
 
 (add-hook 'LaTeX-mode-hook 'latex-preview-pane-mode)
+

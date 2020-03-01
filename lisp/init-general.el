@@ -1,5 +1,7 @@
 (provide 'init-general)
 
+(add-hook 'after-init-hook 'global-auto-revert-mode)
+
 ;; ido-mode setup
 (ido-mode 1)
 (setq ido-save-directory-list-file (expand-file-name "ido-last" backup-dir))
