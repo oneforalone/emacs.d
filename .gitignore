@@ -6,3 +6,4 @@ transient
 .DS_Store
 custom.el
 semanticdb*
+eshell
