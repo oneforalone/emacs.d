@@ -9,6 +9,7 @@
 (require 'init-company)
 (require 'init-magit)
 (require 'init-slime)
+(require 'init-paredit) 
 (require 'init-c-setups)
 (require 'init-latex)
 (require 'init-org)
