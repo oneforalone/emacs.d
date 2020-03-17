@@ -5,6 +5,7 @@
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 
 (setq paredit-common-modes '(emacs-lisp-mode-hook
+			     lisp-mode-hook
 			     eval-expression-minibuffer-setup-hook
 			     ielm-mode-hook
 			     lisp-interaction-mode-hook
