@@ -14,5 +14,6 @@
 (dolist (mode paredit-common-modes)
   (add-hook mode #'enable-paredit-mode))
 
-(add-hook 'slime-repl-mode-hook
-	  (lambda () (paredit-mode +1)))
+;; enable paredit-mode in slime-repl mdoe
+;; (add-hook 'slime-repl-mode-hook
+;; 	  (lambda () (paredit-mode +1)))
