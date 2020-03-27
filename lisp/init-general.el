@@ -29,3 +29,9 @@
 (setq ring-bell-function 'ignore)
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; using the shell $PATH environment on OS X
+(require-package 'exec-path-from-shell)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+
