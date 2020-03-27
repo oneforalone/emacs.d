@@ -13,6 +13,7 @@
 (require 'init-c-setups)
 (require 'init-latex)
 (require 'init-org)
+(require 'init-rust)
 
 (when (file-exists-p custom-file)
   (load custom-file))
