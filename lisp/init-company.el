@@ -4,7 +4,6 @@
 (add-to-list 'completion-styles 'initials t)
 
 (use-package company
-  :ensure t
   :defer t
   :init (add-hook 'after-init-hook #'global-company-mode)
   :bind (:map company-active-map

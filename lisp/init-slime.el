@@ -1,7 +1,6 @@
 (provide 'init-slime)
 
 (use-package slime
-    :ensure t
     :defer t)
 
 (setq slime-contribs '(slime-fancy slime-asdf slime-sprof slime-mdot-fu

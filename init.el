@@ -20,7 +20,6 @@
 (require 'init-cdev)
 (require 'init-rust)
 (require 'init-org)
-;; ;; (require 'init-latex)
 
 (when (file-exists-p custom-file)
   (load custom-file))

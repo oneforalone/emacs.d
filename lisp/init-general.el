@@ -26,14 +26,12 @@
 ;; smex 
 (use-package smex
     :defer t
-    :ensure t
     :init
     (setq-default smex-save-file (expand-file-name "smex-items" backup-dir))
-    (add-hook 'after-init-hook 'smex-initialize))
-
-;;(add-hook 'after-init-hook 'smex-initialize)
-;;(global-set-key (kbd "M-x") 'smex)
-;;(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+    (add-hook 'after-init-hook 'smex-initialize)
+    :bind
+    (("M-x" . smex)
+     ("M-X" . smex-major-mode-commands)))
 
 (defun sudo (command)
   (interactive "MShell command (root): ")
@@ -44,12 +42,6 @@
 (setq ring-bell-function 'ignore)
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; ESUP - Emacs Start Up Profiler
-(use-package esup
-  :ensure t
-  :pin melpa
-  :commands (esup))
-
 ;; using the shell $PATH environment on OS X
 (use-package exec-path-from-shell
   :defer 1
@@ -57,3 +49,9 @@
   :if (memq window-system '(mac ns))
   :ensure t
   :config (exec-path-from-shell-initialize))
+
+;; ;; ESUP - Emacs Start Up Profiler
+;; (use-package esup
+;;   :ensure t
+;;   :pin melpa
+;;   :commands (esup))
