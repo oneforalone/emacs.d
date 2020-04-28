@@ -7,5 +7,6 @@
 
 
 (use-package git-gutter
-    :defer t
+    :defer 1
+    :ensure t
     :init (add-hook 'after-init-hook 'global-git-gutter-mode))
