@@ -31,11 +31,4 @@
       (unless (package-locally-installed-p package)
 	(package-install package)))))
 
-;; Use-package
-;; (unless (package-installed-p 'use-pacakge)
-;;   (package-refresh-contents)
-;;   (package-install 'use-package))
 (require-package 'use-package)
-
-;; (eval-when-compile
-;;   (require 'use-package))

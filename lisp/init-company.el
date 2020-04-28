@@ -5,7 +5,7 @@
 
 (use-package company
   :ensure t
-  :config (add-hook 'after-init-hook #'global-company-mode)
+  :init (add-hook 'after-init-hook #'global-company-mode)
   :bind (:map company-active-map
 	      ("M-/" . company-complete)
 	      ("C-n" . company-select-next)

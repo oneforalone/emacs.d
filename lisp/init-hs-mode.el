@@ -17,10 +17,13 @@
 	  (hs-show-all))
     (toggle-selective-display column)))
 
-(global-set-key (kbd "C-=") 'toggle-hiding)
-(global-set-key (kbd "C-c h") 'hs-hide-all)
-(global-set-key (kbd "C-c s") 'hs-show-all)
-(global-set-key (kbd "C-\\") 'toggle-selective-display)
+(defun hs-key-bind ()
+  (global-set-key (kbd "C-=") 'toggle-hiding)
+  (global-set-key (kbd "C-c h") 'hs-hide-all)
+  (global-set-key (kbd "C-c s") 'hs-show-all)
+  (global-set-key (kbd "C-\\") 'toggle-selective-display))
+
+(add-hook 'after-init-hook 'hs-key-bind)
 
 (defun display-code-line-counts (ov)
   (when (eq 'code (overlay-get ov 'hs))

@@ -15,7 +15,9 @@
   :init (add-hook 'after-init-hook #'doom-modeline-mode))
 
 ;; for windows control
-(global-set-key (kbd "C-c <up>") 'windmove-up)
-(global-set-key (kbd "C-c <down>") 'windmove-down)
-(global-set-key (kbd "C-c <right>") 'windmove-right)
-(global-set-key (kbd "C-c <left>") 'windmove-left)
+(defun window-moving-keybind ()
+  (global-set-key (kbd "C-c <up>") 'windmove-up)
+  (global-set-key (kbd "C-c <down>") 'windmove-down)
+  (global-set-key (kbd "C-c <right>") 'windmove-right)
+  (global-set-key (kbd "C-c <left>") 'windmove-left))
+(add-hook 'after-init-hook 'window-moving-keybind)

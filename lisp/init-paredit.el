@@ -10,7 +10,7 @@
 (use-package paredit
     :defer t
     :ensure t
-    :config
+    :init
     (dolist (mode paredit-common-modes)
       (add-hook mode #'enable-paredit-mode)))
 

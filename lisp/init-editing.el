@@ -22,16 +22,18 @@
 (setq auto-save-list-file-prefix backup-dir)
 
 ;; multiple cursors
+(defun multiple-cursors-key-bind ()
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
+
 (use-package multiple-cursors
-  :defer 1
-  :ensure t
-  :config
-  (add-hook 'after-init-hook 'multiple-cursors-mode)
-  :bind
-  ("C-S-c C-S-c" . 'mc/edit-lines)
-  ("C-S-c C-S-c" . 'mc/edit-lines)
-  ("C->" . 'mc/mark-next-like-this)
-  ("C-<" . 'mc/mark-previous-like-this)
-  ("C-c C-<" . 'mc/mark-all-like-this))
+    :defer 1
+    :ensure t
+    :init
+    (add-hook 'after-init-hook 'multiple-cursors-mode)
+    (add-hook 'after-init-hook 'multiple-cursors-key-bind))
 
 (require 'init-hs-mode)

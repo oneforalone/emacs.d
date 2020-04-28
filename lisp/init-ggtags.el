@@ -4,7 +4,7 @@
 (use-package ggtags
     :defer t
     :ensure t
-    :config
+    :init
     (add-hook 'c-mode-common-hook
 	  (lambda ()
 	    (when (derived-mode-p 'c-mode
