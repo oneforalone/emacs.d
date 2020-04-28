@@ -9,10 +9,12 @@
 
 ;; setup irony: support clang completion
 (use-package company-irony
-  :defer t)
+    :ensure t
+    :after company)
 
 (use-package company-irony-c-headers
-  :defer t)
+    :ensure t
+    :after company)
 
 (eval-after-load 'company
   '(add-to-list 'company-backends '(company-irony company-irony-c-headers)))

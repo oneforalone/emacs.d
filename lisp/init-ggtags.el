@@ -3,7 +3,8 @@
 ;; ggtags
 (use-package ggtags
     :defer t
-    :init
+    :ensure t
+    :config
     (add-hook 'c-mode-common-hook
 	  (lambda ()
 	    (when (derived-mode-p 'c-mode

@@ -23,8 +23,9 @@
 
 ;; multiple cursors
 (use-package multiple-cursors
-  :defer 3
-  :init
+  :defer 1
+  :ensure t
+  :config
   (add-hook 'after-init-hook 'multiple-cursors-mode)
   :bind
   ("C-S-c C-S-c" . 'mc/edit-lines)

@@ -2,6 +2,7 @@
 
 (use-package slime
     :defer t
+    :ensure t
     :config
     (when (executable-find "sbcl")
       (add-to-list 'slime-lisp-implementations

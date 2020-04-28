@@ -26,7 +26,8 @@
 ;; smex 
 (use-package smex
     :defer t
-    :init
+    :ensure t
+    :config
     (setq-default smex-save-file (expand-file-name "smex-items" backup-dir))
     (add-hook 'after-init-hook 'smex-initialize)
     :bind
@@ -45,13 +46,13 @@
 ;; using the shell $PATH environment on OS X
 (use-package exec-path-from-shell
   :defer 1
-  :init (setq exec-path-from-shell-check-startup-files nil)
+  :config (setq exec-path-from-shell-check-startup-files nil)
   :if (memq window-system '(mac ns))
   :ensure t
   :config (exec-path-from-shell-initialize))
 
-;; ;; ESUP - Emacs Start Up Profiler
-;; (use-package esup
-;;   :ensure t
-;;   :pin melpa
-;;   :commands (esup))
+;; ESUP - Emacs Start Up Profiler
+(use-package esup
+  :ensure t
+  :pin melpa
+  :commands (esup))

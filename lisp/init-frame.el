@@ -11,8 +11,8 @@
 ;; doom-modeline
 (use-package doom-modeline
   :defer t
-  :init
-  (add-hook 'after-init-hook #'doom-modeline-mode))
+  :ensure t
+  :init (add-hook 'after-init-hook #'doom-modeline-mode))
 
 ;; for windows control
 (global-set-key (kbd "C-c <up>") 'windmove-up)
