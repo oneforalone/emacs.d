@@ -1,8 +1,10 @@
 (provide 'init-paredit)
 
-(require-package 'paredit)
+;; (require-package 'paredit)
 
-(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+;; (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(use-package paredit
+    :defer t)
 
 (setq paredit-common-modes '(emacs-lisp-mode-hook
 			     lisp-mode-hook

@@ -1,7 +1,8 @@
 (provide 'init-slime)
 
-(require-package 'slime)
-(require 'slime)
+(use-package slime
+    :ensure t
+    :defer t)
 
 (setq slime-contribs '(slime-fancy slime-asdf slime-sprof slime-mdot-fu
 				   slime-compiler-notes-tree slime-hyperdoc

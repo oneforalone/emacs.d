@@ -1,17 +1,21 @@
 (provide 'init-frame)
 
-
-(when (fboundp 'tool-bar-mode)
-  (tool-bar-mode -1))
-
-(when (fboundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
-
-(when (fboundp 'menu-bar-mode)
+(defun simplify-frame-gui ()
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
   (menu-bar-mode -1))
+(add-hook 'after-init-hook 'simplify-frame-gui)
 
 (setq inhibit-startup-screen t)
 
+;; doom-modeline
+(use-package doom-modeline
+  :defer t
+  :init
+  (add-hook 'after-init-hook #'doom-modeline-mode))
 
-(require-package 'doom-modeline)
-(add-hook 'after-init-hook 'doom-modeline-mode)
+;; for windows control
+(global-set-key (kbd "C-c <up>") 'windmove-up)
+(global-set-key (kbd "C-c <down>") 'windmove-down)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <left>") 'windmove-left)

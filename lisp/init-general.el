@@ -1,24 +1,39 @@
 (provide 'init-general)
 
-(add-hook 'after-init-hook 'global-auto-revert-mode)
+;; Use a hook so the message doesn't get clobbered by other messages.
+(add-hook 'emacs-startup-hook
+    (lambda ()
+        (message "Emacs ready in %s with %d garbage collections."
+            (format "%.2f seconds"
+                (float-time
+                    (time-subtract after-init-time before-init-time)))
+        gcs-done)))
 
-;; ido-mode setup
-(ido-mode 1)
+
+;; ido-mode
+(add-hook 'after-init-hook 'ido-mode)
 (setq ido-save-directory-list-file (expand-file-name "ido-last" backup-dir))
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 
-(show-paren-mode 1)
-(electric-indent-mode 1)
-(semantic-mode 1)
-(delete-selection-mode 1)
+(defun enable-common-mode ()
+  (show-paren-mode 1)
+  (electric-indent-mode 1)
+  (delete-selection-mode 1))
 
-;; smex setups
-(require-package 'smex)
-(setq-default smex-save-file (expand-file-name "smex-items" backup-dir))
-(add-hook 'after-init-hook 'smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(add-hook 'after-init-hook 'enable-common-mode)
+
+;; smex 
+(use-package smex
+    :defer t
+    :ensure t
+    :init
+    (setq-default smex-save-file (expand-file-name "smex-items" backup-dir))
+    (add-hook 'after-init-hook 'smex-initialize))
+
+;;(add-hook 'after-init-hook 'smex-initialize)
+;;(global-set-key (kbd "M-x") 'smex)
+;;(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 (defun sudo (command)
   (interactive "MShell command (root): ")
@@ -29,9 +44,16 @@
 (setq ring-bell-function 'ignore)
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; using the shell $PATH environment on OS X
-(require-package 'exec-path-from-shell)
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-(setq exec-path-from-shell-check-startup-files nil)
+;; ESUP - Emacs Start Up Profiler
+(use-package esup
+  :ensure t
+  :pin melpa
+  :commands (esup))
 
+;; using the shell $PATH environment on OS X
+(use-package exec-path-from-shell
+  :defer 1
+  :init (setq exec-path-from-shell-check-startup-files nil)
+  :if (memq window-system '(mac ns))
+  :ensure t
+  :config (exec-path-from-shell-initialize))

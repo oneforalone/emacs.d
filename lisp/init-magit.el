@@ -1,6 +1,7 @@
 (provide 'init-magit)
 
-(require-package 'magit)
+(use-package magit
+  :defer t
+  :bind (("C-x g" . magit-status)
+	 ("C-x M-g" . magit-dispatch)))
 
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch)
