@@ -17,16 +17,10 @@
 (eval-after-load 'company
   '(add-to-list 'company-backends '(company-irony company-irony-c-headers)))
 
-;; ggtags
-(use-package ggtags
-    :defer t
-    :config
-    (add-hook 'c-mode-common-hook
-	  (lambda ()
-	    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
-	      (ggtags-mode 1)))))
+(require 'init-ggtags)
 
-;; semantic
 (add-hook 'after-init-hook 'semantic-mode)
-;; (add-hook 'c-mode-hook 'semantic-idle-summary-mode)
-;; (add-hook 'c-mode-hook 'semantic-idle-completions-mode)
+(add-hook 'after-init-hook (lambda ()
+			     (require 'semantic)
+			     (global-semantic-idle-summary-mode)
+			     (global-semantic-idle-scheduler-mode)))
