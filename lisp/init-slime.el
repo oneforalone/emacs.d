@@ -1,7 +1,11 @@
 (provide 'init-slime)
 
 (use-package slime
-    :defer t)
+    :defer t
+    :config
+    (when (executable-find "sbcl")
+      (add-to-list 'slime-lisp-implementations
+		   '(sbcl ("sbcl")))))
 
 (setq slime-contribs '(slime-fancy slime-asdf slime-sprof slime-mdot-fu
 				   slime-compiler-notes-tree slime-hyperdoc
@@ -26,6 +30,4 @@
 (setq lisp-loop-indent-forms-like-keywords t)
 (setq lisp-lambda-list-keyword-parameter-alignment t)
 
-(when (executable-find "sbcl")
-  (add-to-list 'slime-lisp-implementations
-	       '(sbcl ("sbcl"))))
+
