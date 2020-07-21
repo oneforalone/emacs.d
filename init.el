@@ -15,11 +15,14 @@
 (require 'init-editing)
 (require 'init-company)
 (require 'init-magit)
+;; programming languages
 (require 'init-slime)
 (require 'init-paredit)
 (require 'init-cdev)
 (require 'init-rust)
+;; notes mode
 (require 'init-org)
+(require 'init-markdown)
 
 (when (file-exists-p custom-file)
   (load custom-file))
