@@ -6,7 +6,7 @@
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
 
-(add-to-list 'load-path (expand-file-name "lisp"  user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "config"  user-emacs-directory))
 
 (require 'init-path)
 (require 'init-package)

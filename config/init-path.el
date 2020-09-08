@@ -1,5 +1,7 @@
 (provide 'init-path)
 
+(add-to-list 'load-path (expand-file-name "elisp" user-emacs-directory))
+
 (defconst backup-dir (concat user-emacs-directory "saves"))
 
 (defun ensure-backup-dir ()
