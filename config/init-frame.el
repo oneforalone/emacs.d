@@ -31,10 +31,8 @@
 
 ;; for windows control
 (defun window-moving-keybind ()
-  (global-set-key (kbd "s-c h") 'windmove-up)
-  (global-set-key (kbd "s-c j") 'windmove-down)
-  (global-set-key (kbd "s-c k") 'windmove-right)
-  (global-set-key (kbd "s-c l") 'windmove-left))
+  (global-set-key (kbd "C-s-h") 'windmove-up)
+  (global-set-key (kbd "C-s-j") 'windmove-down)
+  (global-set-key (kbd "C-s-k") 'windmove-right)
+  (global-set-key (kbd "C-s-l") 'windmove-left))
 (add-hook 'after-init-hook #'window-moving-keybind)
-
-
