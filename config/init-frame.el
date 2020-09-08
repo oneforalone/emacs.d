@@ -3,7 +3,7 @@
 (defun simplify-frame-gui ()
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
-  (menu-bar-mode -1))
+  (menu-bar-mode 1))
 (add-hook 'after-init-hook 'simplify-frame-gui)
 
 (setq inhibit-startup-screen t)
