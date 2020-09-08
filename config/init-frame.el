@@ -1,10 +1,9 @@
 (provide 'init-frame)
 
-(defun simplify-frame-gui ()
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1)
-  (menu-bar-mode 1))
-(add-hook 'after-init-hook 'simplify-frame-gui)
+(add-hook 'after-init-hook
+	  (lambda ()
+	    (progn (tool-bar-mode -1)
+		   (scroll-bar-mode -1))))
 
 (setq inhibit-startup-screen t)
 
@@ -14,18 +13,28 @@
     :defer t
     :ensure t
     :init (add-hook 'after-init-hook #'doom-modeline-mode))
-  (progn
-    (require 'awesome-tray)
-    (setq awesome-tray-active-modules
-	  '("location" "git" "buffer-name" "mode-name" "date" "battery"))
-    (add-hook 'after-init-hook 'awesome-tray-mode)))
+  (use-package awesome-tray
+      :init
+      (add-hook 'after-init-hook #'awesome-tray-enable)
+      (setq awesome-tray-active-modules
+	    '("location" "git" "parent-dir" "mode-name" "battery" "date"))))
+
+(use-package awesome-tab
+    :config
+      (awesome-tab-mode 1)
+      (setq awesome-tab-height 100)
+    :bind (("s-h" . awesome-tab-backward-tab)
+    	   ("s-j" . awesome-tab-forward-group)
+    	   ("s-k" . awesome-tab-backward-group)
+    	   ("s-l" . awesome-tab-forward-tab)))
+
 
 ;; for windows control
 (defun window-moving-keybind ()
-  (global-set-key (kbd "C-c <up>") 'windmove-up)
-  (global-set-key (kbd "C-c <down>") 'windmove-down)
-  (global-set-key (kbd "C-c <right>") 'windmove-right)
-  (global-set-key (kbd "C-c <left>") 'windmove-left))
-(add-hook 'after-init-hook 'window-moving-keybind)
+  (global-set-key (kbd "s-c h") 'windmove-up)
+  (global-set-key (kbd "s-c j") 'windmove-down)
+  (global-set-key (kbd "s-c k") 'windmove-right)
+  (global-set-key (kbd "s-c l") 'windmove-left))
+(add-hook 'after-init-hook #'window-moving-keybind)
 
 
