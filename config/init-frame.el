@@ -6,7 +6,8 @@
 		   (scroll-bar-mode -1)
 		   (if (eq system-type 'darwin)
 		       (menu-bar-mode 1)
-		     (menu-bar-mode -1)))))
+		     (menu-bar-mode -1))
+		   (global-linum-mode))))
 
 (setq inhibit-startup-screen t)
 
