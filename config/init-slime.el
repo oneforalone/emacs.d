@@ -8,9 +8,9 @@
       (add-to-list 'slime-lisp-implementations
 		   '(sbcl ("sbcl")))))
 
-(setq slime-contribs '(slime-fancy slime-asdf slime-sprof slime-mdot-fu
-				   slime-compiler-notes-tree slime-hyperdoc
-				   slime-indentation slime-repl))
+;;(setq slime-contribs '(slime-fancy slime-asdf slime-sprof slime-mdot-fu
+;;				   slime-compiler-notes-tree slime-hyperdoc
+;;				   slime-indentation slime-repl))
 
 (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
 (setq slime-net-coding-system 'utf-8-unix)
