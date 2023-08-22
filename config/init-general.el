@@ -60,3 +60,7 @@
 ;;   :ensure t
 ;;   :pin melpa
 ;;   :commands (esup))
+
+(use-package the-matrix-theme
+	     :defer 1
+	     :ensure t)

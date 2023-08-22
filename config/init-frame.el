@@ -4,10 +4,12 @@
 	  (lambda ()
 	    (progn (tool-bar-mode -1)
 		   (scroll-bar-mode -1)
+		   (load-theme 'the-matrix)
 		   (if (eq system-type 'darwin)
 		       (menu-bar-mode 1)
 		     (menu-bar-mode -1))
-		   (global-linum-mode))))
+		   (global-linum-mode)
+		   (slime))))
 
 (setq inhibit-startup-screen t)
 
