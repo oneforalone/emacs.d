@@ -5,11 +5,17 @@
 	    (progn (tool-bar-mode -1)
 		   (scroll-bar-mode -1)
 		   (load-theme 'the-matrix)
-		   (if (eq system-type 'darwin)
-		       (menu-bar-mode 1)
-		     (menu-bar-mode -1))
-		   (global-linum-mode)
-		   (slime))))
+
+		   (when (fboundp 'menu-bar-mode)
+		     (if (eq system-type 'darwin)
+			 (menu-bar-mode 1)
+		       (menu-bar-mode -1)))
+
+		   (when (fboundp 'global-display-line-numbers-mode)
+		     (global-display-line-numbers-mode))
+		   
+		   (when (executable-find "sbcl")
+		     (slime)))))
 
 (setq inhibit-startup-screen t)
 
